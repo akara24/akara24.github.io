@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DragonPark — Mobile App Developer</title>
+  <style>
+    :root {
+      --primary: #3182F6;
+      --text: #191F28;
+      --sub: #4E5968;
+      --bg: #F9FAFB;
+      --card: #FFFFFF;
+      --border: #E5E8EB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; font-size: 15px;
+    }
+    header {
+      background: var(--primary); color: #fff;
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    header h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+    header p  { font-size: 15px; opacity: 0.85; }
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    h2 { font-size: 20px; font-weight: 700; margin: 40px 0 16px; color: var(--text); }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.05);
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .app-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; flex-shrink: 0;
+    }
+    .app-info { flex: 1; }
+    .app-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .app-desc { color: var(--sub); font-size: 14px; margin-bottom: 12px; line-height: 1.6; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tag {
+      background: #EBF3FE; color: var(--primary);
+      font-size: 12px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 8px 16px;
+      border-radius: 10px; font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .btn:hover { opacity: 0.8; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-outline {
+      background: transparent; color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .coming-soon {
+      display: inline-block; background: #F2F4F6; color: #8B95A1;
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; vertical-align: middle; margin-left: 8px;
+    }
+    .contact-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      margin-top: 8px;
+    }
+    .contact-card p { color: var(--sub); margin-bottom: 6px; }
+    .contact-card a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    footer {
+      text-align: center; color: #8B95A1;
+      font-size: 12px; padding: 24px;
+      border-top: 1px solid var(--border); margin-top: 40px;
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 26px; }
+      .card { flex-direction: column; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>DragonPark</h1>
+  <p>Mobile App Developer · Android & iOS</p>
+</header>
+
+<div class="container">
+
+  <h2>앱 목록 (Apps)</h2>
+
+  <!-- NOW MONEY -->
+  <div class="card">
+    <div class="app-icon">🌏</div>
+    <div class="app-info">
+      <div class="app-name">NOW MONEY</div>
+      <div class="app-desc">
+        실시간 환율 계산 앱. 23개 통화 지원, 구간 환산표 PNG 저장, 즐겨찾기 드래그 정렬.<br>
+        Real-time currency converter with exchange rate table, 23 currencies supported.
+      </div>
+      <div class="tags">
+        <span class="tag">Android</span>
+        <span class="tag">iOS</span>
+        <span class="tag">환율</span>
+        <span class="tag">여행</span>
+      </div>
+      <div class="links">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.dragonpark.currencyapp" target="_blank">Google Play</a>
+        <a class="btn btn-outline" href="/nowmoney/">개인정보처리방침</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>문의 (Contact)</h2>
+  <div class="contact-card">
+    <p>개발사: <strong>DragonPark</strong></p>
+    <p>이메일: <a href="mailto:sespjh@gmail.com">sespjh@gmail.com</a></p>
+    <p>개인정보 관련 문의는 이메일로 연락해 주시면 영업일 기준 3일 이내 답변 드립니다.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 DragonPark · All rights reserved
+</footer>
+
+</body>
+</html>
