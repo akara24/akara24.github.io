@@ -1,0 +1,102 @@
+name: Update Exchange Rates
+
+on:
+  schedule:
+    - cron: '*/10 0-10 * * 1-5'
+    - cron: '0 11-23 * * 1-5'
+    - cron: '0 */4 * * 0,6'
+  workflow_dispatch:
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and save exchange rates
+        env:
+          KOREAEXIM_KEY: ${{ secrets.KOREAEXIM_KEY }}
+        run: |
+          python3 << 'PYEOF'
+          import json, urllib.request, datetime, os, ssl
+
+          KEY = os.environ['KOREAEXIM_KEY']
+          EXIM_CODE_MAP = {
+              'USD': 'USD',    'JPY': 'JPY(100)', 'EUR': 'EUR',     'GBP': 'GBP',
+              'AUD': 'AUD',    'CAD': 'CAD',      'NZD': 'NZD',     'CHF': 'CHF',
+              'SEK': 'SEK',    'DKK': 'DKK',      'NOK': 'NOK',     'HKD': 'HKD',
+              'SGD': 'SGD',    'CNY': 'CNH',       'THB': 'THB',     'MYR': 'MYR',
+              'IDR': 'IDR(100)', 'AED': 'AED',     'SAR': 'SAR',
+          }
+
+          ctx = ssl.create_default_context()
+          ctx.check_hostname = False
+          ctx.verify_mode = ssl.CERT_NONE
+
+          def fetch_rates(ymd):
+              url = (f'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
+                     f'?authkey={KEY}&searchdate={ymd}&data=AP01')
+              try:
+                  req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                  with urllib.request.urlopen(req, timeout=15, context=ctx) as r:
+                      data = json.loads(r.read())
+                  if not isinstance(data, list) or not data:
+                      return None
+                  tts_map = {}
+                  for item in data:
+                      if item.get('result') == 1:
+                          try:
+                              tts = float(str(item.get('tts', '')).replace(',', ''))
+                              if tts > 0:
+                                  tts_map[item['cur_unit']] = tts
+                          except Exception:
+                              pass
+                  rates = {}
+                  for app_code, exim_code in EXIM_CODE_MAP.items():
+                      r = tts_map.get(exim_code)
+                      if r:
+                          if '(100)' in exim_code:
+                              r = r / 100
+                          rates[app_code] = round(r, 4)
+                  return rates if rates else None
+              except Exception as e:
+                  print(f'  fetch_rates({ymd}) failed: {e}')
+                  return None
+
+          os.makedirs('nowmoney/rates', exist_ok=True)
+          today = datetime.date.today()
+
+          latest_date = None
+          for i in range(7):
+              d = today - datetime.timedelta(days=i)
+              rates = fetch_rates(d.strftime('%Y%m%d'))
+              if rates:
+                  latest_date = d
+                  result = {
+                      'date': d.isoformat(),
+                      'fetchedAt': datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+                      'rates': rates,
+                  }
+                  with open('nowmoney/rates/latest.json', 'w') as f:
+                      json.dump(result, f)
+                  print(f'latest.json saved: {d.isoformat()} ({len(rates)} currencies)')
+                  break
+
+          if latest_date:
+              for i in range(1, 8):
+                  d = latest_date - datetime.timedelta(days=i)
+                  prev = fetch_rates(d.strftime('%Y%m%d'))
+                  if prev:
+                      with open('nowmoney/rates/prev.json', 'w') as f:
+                          json.dump({'date': d.isoformat(), 'rates': prev}, f)
+                      print(f'prev.json saved: {d.isoformat()}')
+                      break
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add nowmoney/rates/
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "chore: update exchange rates $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git push
