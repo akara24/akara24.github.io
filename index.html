@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>개인정보처리방침 / Privacy Policy — NOW MONEY</title>
+  <title>DragonPark — Mobile App Developer</title>
   <style>
     :root {
       --primary: #3182F6;
@@ -17,532 +17,119 @@
     body {
       font-family: -apple-system, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
       background: var(--bg); color: var(--text);
-      line-height: 1.75; font-size: 15px;
+      line-height: 1.7; font-size: 15px;
     }
     header {
       background: var(--primary); color: #fff;
-      padding: 48px 24px 36px;
+      padding: 64px 24px 48px;
       text-align: center;
     }
-    header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
-    header p  { font-size: 13px; opacity: 0.85; }
-    .container { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+    header h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+    header p  { font-size: 15px; opacity: 0.85; }
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    h2 { font-size: 20px; font-weight: 700; margin: 40px 0 16px; color: var(--text); }
     .card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 24px; margin-bottom: 16px;
-      box-shadow: 0 1px 6px rgba(0,0,0,.04);
+      border-radius: 20px; padding: 28px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 8px rgba(0,0,0,.05);
+      display: flex; align-items: flex-start; gap: 20px;
     }
-    h2 {
-      font-size: 17px; font-weight: 700; color: var(--primary);
-      margin-bottom: 14px; padding-bottom: 10px;
-      border-bottom: 1.5px solid var(--border);
+    .app-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; flex-shrink: 0;
     }
-    h3 { font-size: 14px; font-weight: 700; margin: 16px 0 6px; color: var(--text); }
-    p  { color: var(--sub); margin-bottom: 10px; }
-    ul { color: var(--sub); padding-left: 20px; margin-bottom: 10px; }
-    li { margin-bottom: 5px; }
-    .badge {
-      display: inline-block; background: #EBF3FE; color: var(--primary);
-      font-size: 12px; font-weight: 700; padding: 3px 10px;
-      border-radius: 20px; margin-bottom: 12px;
-    }
-    .highlight {
-      background: #F0FDF4; border: 1px solid #BBF7D0;
-      border-radius: 10px; padding: 12px 16px; margin: 10px 0;
-      color: #166534; font-size: 14px;
-    }
-    .warn {
-      background: #FFFBEB; border: 1px solid #FDE68A;
-      border-radius: 10px; padding: 12px 16px; margin: 10px 0;
-      color: #92400E; font-size: 14px;
-    }
-    table {
-      width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px;
-    }
-    th {
+    .app-info { flex: 1; }
+    .app-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .app-desc { color: var(--sub); font-size: 14px; margin-bottom: 12px; line-height: 1.6; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tag {
       background: #EBF3FE; color: var(--primary);
-      padding: 10px 12px; text-align: left; font-weight: 700;
-      border: 1px solid var(--border);
+      font-size: 12px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
     }
-    td { padding: 9px 12px; border: 1px solid var(--border); color: var(--sub); vertical-align: top; }
-    .toc {
+    .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 8px 16px;
+      border-radius: 10px; font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .btn:hover { opacity: 0.8; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-outline {
+      background: transparent; color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .coming-soon {
+      display: inline-block; background: #F2F4F6; color: #8B95A1;
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; vertical-align: middle; margin-left: 8px;
+    }
+    .contact-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 20px 24px; margin-bottom: 24px;
+      border-radius: 16px; padding: 24px;
+      margin-top: 8px;
     }
-    .toc h2 { margin-bottom: 10px; }
-    .toc ol { padding-left: 20px; color: var(--sub); }
-    .toc li { margin-bottom: 4px; }
-    .toc a { color: var(--primary); text-decoration: none; }
-    .toc a:hover { text-decoration: underline; }
+    .contact-card p { color: var(--sub); margin-bottom: 6px; }
+    .contact-card a { color: var(--primary); text-decoration: none; font-weight: 600; }
     footer {
       text-align: center; color: #8B95A1;
       font-size: 12px; padding: 24px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border); margin-top: 40px;
     }
-    .lang-switch {
-      display: inline-flex; gap: 4px; margin-top: 18px;
-      background: rgba(255,255,255,0.18); padding: 4px; border-radius: 22px;
-    }
-    .lang-switch button {
-      border: none; background: transparent; color: #fff;
-      font-size: 13px; font-weight: 700; padding: 6px 16px;
-      border-radius: 18px; cursor: pointer; opacity: 0.7;
-    }
-    .lang-switch button.active { background: #fff; color: var(--primary); opacity: 1; }
-    .lang { display: none; }
-    .lang.active { display: block; }
-    @media (max-width: 600px) {
-      header { padding: 36px 16px 28px; }
-      .card  { padding: 20px 16px; }
-      header h1 { font-size: 22px; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 26px; }
+      .card { flex-direction: column; gap: 14px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div style="margin-bottom:20px;">
-    <a href="/" style="color:rgba(255,255,255,0.75); font-size:13px; text-decoration:none;">← DragonPark</a>
-  </div>
-  <h1>🌏 NOW MONEY</h1>
-  <p>개인정보처리방침 · Privacy Policy</p>
-  <p style="margin-top:8px; opacity:0.75;">최종 업데이트: 2026년 6월 11일 · Last updated: June 11, 2026</p>
-  <div class="lang-switch">
-    <button id="btn-ko" class="active" onclick="setLang('ko')">한국어</button>
-    <button id="btn-en" onclick="setLang('en')">English</button>
-  </div>
+  <h1>DragonPark</h1>
+  <p>Mobile App Developer · Android & iOS</p>
 </header>
 
-<!-- ================= 한국어 ================= -->
-<div id="ko" class="lang active">
 <div class="container">
 
-  <div class="toc">
-    <h2>목차</h2>
-    <ol>
-      <li><a href="#ko-intro">서비스 소개</a></li>
-      <li><a href="#ko-collect">수집하는 정보</a></li>
-      <li><a href="#ko-nocollect">수집하지 않는 정보</a></li>
-      <li><a href="#ko-permissions">앱 권한 사용</a></li>
-      <li><a href="#ko-thirdparty">제3자 서비스 이용</a></li>
-      <li><a href="#ko-ads">광고 및 추적 (AdMob · ATT)</a></li>
-      <li><a href="#ko-storage">로컬 데이터 저장</a></li>
-      <li><a href="#ko-security">데이터 보안</a></li>
-      <li><a href="#ko-children">아동 이용자 보호</a></li>
-      <li><a href="#ko-rights">이용자 권리</a></li>
-      <li><a href="#ko-changes">방침 변경 안내</a></li>
-      <li><a href="#ko-contact">문의처</a></li>
-    </ol>
-  </div>
+  <h2>앱 목록 (Apps)</h2>
 
-  <div class="card" id="ko-intro">
-    <span class="badge">1</span>
-    <h2>서비스 소개</h2>
-    <p>
-      <strong>NOW MONEY</strong>는 여행자 및 해외 결제를 자주 이용하는 분들을 위한 실시간 환율 계산 앱입니다.
-      개발사 <strong>DragonPark</strong>(이하 "당사")는 이용자의 개인정보를 소중히 여기며,
-      대한민국 「개인정보 보호법」, EU GDPR, Google Play 개발자 정책 및 Apple App Store 정책을 준수합니다.
-    </p>
-    <p>본 방침은 NOW MONEY 앱(Android/iOS)을 이용하는 모든 이용자에게 적용됩니다.</p>
-    <div class="highlight">
-      ✅ 핵심 요약: NOW MONEY는 회원가입·로그인이 없으며 <strong>이용자의 개인 식별 정보를 수집하지 않습니다.</strong>
-      단, 앱은 무료 제공을 위해 <strong>Google AdMob 광고</strong>를 사용하며, 광고 제공 과정에서
-      광고 식별자 등 제한적 데이터가 처리될 수 있습니다(아래 5·6항 참조).
+  <!-- NOW MONEY -->
+  <div class="card">
+    <div class="app-icon">🌏</div>
+    <div class="app-info">
+      <div class="app-name">NOW MONEY</div>
+      <div class="app-desc">
+        실시간 환율 계산 앱. 23개 통화 지원, 구간 환산표 PNG 저장, 즐겨찾기 드래그 정렬.<br>
+        Real-time currency converter with exchange rate table, 23 currencies supported.
+      </div>
+      <div class="tags">
+        <span class="tag">Android</span>
+        <span class="tag">iOS</span>
+        <span class="tag">환율</span>
+        <span class="tag">여행</span>
+      </div>
+      <div class="links">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.dragonpark.currencyapp" target="_blank">Google Play</a>
+        <a class="btn btn-outline" href="/nowmoney/">개인정보처리방침</a>
+      </div>
     </div>
   </div>
 
-  <div class="card" id="ko-collect">
-    <span class="badge">2</span>
-    <h2>수집하는 정보</h2>
-    <p>당사가 <strong>직접</strong> 저장하는 정보는 다음의 기기 내 로컬 데이터뿐이며, 당사 서버로 전송되지 않습니다.</p>
-    <table>
-      <thead>
-        <tr><th>저장 항목</th><th>저장 위치</th><th>보유 기간</th><th>목적</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>즐겨찾기 통화 목록<br><small>(예: USD, JPY, EUR)</small></td><td>기기 로컬 저장소<br>(AsyncStorage)</td><td>앱 삭제 시까지</td><td>즐겨찾기 유지</td></tr>
-        <tr><td>언어·홈 통화 설정</td><td>기기 로컬 저장소</td><td>앱 삭제 시까지</td><td>사용자 설정 유지</td></tr>
-        <tr><td>최근 환율 데이터 캐시<br><small>(숫자 데이터만)</small></td><td>기기 로컬 저장소</td><td>최대 6시간 (TTL)</td><td>오프라인 지원, 빠른 구동</td></tr>
-        <tr><td>이미지 저장 횟수 카운터</td><td>기기 로컬 저장소</td><td>앱 삭제 시까지</td><td>광고 노출 빈도 조절</td></tr>
-      </tbody>
-    </table>
-    <p>아울러 광고 제공을 위해 <strong>Google AdMob</strong>이 광고 식별자 등 일부 데이터를 수집할 수 있습니다(5·6항 참조).</p>
+  <h2>문의 (Contact)</h2>
+  <div class="contact-card">
+    <p>개발사: <strong>DragonPark</strong></p>
+    <p>이메일: <a href="mailto:sespjh@gmail.com">sespjh@gmail.com</a></p>
+    <p>개인정보 관련 문의는 이메일로 연락해 주시면 영업일 기준 3일 이내 답변 드립니다.</p>
   </div>
 
-  <div class="card" id="ko-nocollect">
-    <span class="badge">3</span>
-    <h2>수집하지 않는 정보</h2>
-    <p>당사는 다음 정보를 <strong>수집·저장·처리하지 않습니다.</strong></p>
-    <ul>
-      <li>이름, 이메일, 전화번호 등 개인 식별 정보</li>
-      <li>GPS 등 정밀 위치 정보</li>
-      <li>연락처, 카메라, 마이크 데이터</li>
-      <li>계좌번호, 카드번호 등 금융 정보</li>
-      <li>푸시 알림 토큰 (알림 기능 미제공)</li>
-      <li>사용자가 입력한 금액 수치 (계산 후 보관 없음)</li>
-    </ul>
-    <div class="warn">
-      ⚠️ 단, 광고 제공을 담당하는 Google AdMob은 광고 식별자(IDFA/GAID), IP 기반 대략적 위치,
-      광고 상호작용 데이터를 자체적으로 처리할 수 있습니다. 자세한 내용은 5·6항을 확인하세요.
-    </div>
-  </div>
-
-  <div class="card" id="ko-permissions">
-    <span class="badge">4</span>
-    <h2>앱 권한 사용</h2>
-    <table>
-      <thead><tr><th>권한</th><th>사용 목적</th><th>필수 여부</th></tr></thead>
-      <tbody>
-        <tr><td><strong>인터넷 (INTERNET)</strong></td><td>실시간 환율 조회 및 광고 로드</td><td>필수</td></tr>
-        <tr><td><strong>사진/미디어 접근</strong><br><small>Android: READ_MEDIA_IMAGES<br>iOS: NSPhotoLibraryAddUsageDescription</small></td><td>환산표 PNG를 갤러리에 저장할 때만 사용. 기존 사진 열람·수정 불가, 저장 전용.</td><td>선택</td></tr>
-        <tr><td><strong>App Tracking Transparency</strong><br><small>iOS: NSUserTrackingUsageDescription</small></td><td>맞춤형 광고 제공 동의 여부 확인(거부 가능).</td><td>선택</td></tr>
-      </tbody>
-    </table>
-    <h3>사용하지 않는 권한</h3>
-    <p>정밀 위치, 카메라, 마이크, 연락처, 블루투스, NFC 등 환율 계산과 무관한 민감 권한은 요청하지 않습니다.</p>
-  </div>
-
-  <div class="card" id="ko-thirdparty">
-    <span class="badge">5</span>
-    <h2>제3자 서비스 이용</h2>
-
-    <h3>① 한국수출입은행 환율 API</h3>
-    <table>
-      <tr><th>제공 기관</th><td>한국수출입은행 (Korea Eximbank)</td></tr>
-      <tr><th>전송 데이터</th><td>날짜 파라미터(YYYYMMDD) — 개인정보 없음</td></tr>
-      <tr><th>목적</th><td>실시간 "살 때" 환율 제공</td></tr>
-    </table>
-
-    <h3>② ExchangeRate-API</h3>
-    <table>
-      <tr><th>제공 기관</th><td>ExchangeRate-API Ltd.</td></tr>
-      <tr><th>전송 데이터</th><td>없음 (파라미터 미포함 GET)</td></tr>
-      <tr><th>개인정보처리방침</th><td><a href="https://www.exchangerate-api.com/legal/privacy-policy" target="_blank">exchangerate-api.com/legal/privacy-policy</a></td></tr>
-    </table>
-
-    <h3>③ Google AdMob (광고)</h3>
-    <table>
-      <tr><th>제공 기관</th><td>Google LLC (AdMob)</td></tr>
-      <tr><th>처리 데이터</th><td>광고 식별자(IDFA/GAID), IP 기반 대략적 위치, 기기 정보, 광고 상호작용 데이터</td></tr>
-      <tr><th>목적</th><td>보상형 광고 노출, 광고 측정·사기 방지</td></tr>
-      <tr><th>개인정보처리방침</th><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td></tr>
-      <tr><th>데이터 사용 안내</th><td><a href="https://support.google.com/admob/answer/6128543" target="_blank">Google의 데이터 사용 방식</a></td></tr>
-    </table>
-    <div class="warn">
-      ⚠️ AdMob은 Google이 운영하는 광고 네트워크로, 광고 제공을 위해 위 데이터를 자체적으로 처리합니다.
-      당사는 이용자의 이름·이메일 등 개인 식별 정보를 AdMob에 전달하지 않습니다.
-    </div>
-  </div>
-
-  <div class="card" id="ko-ads">
-    <span class="badge">6</span>
-    <h2>광고 및 추적 (AdMob · ATT)</h2>
-    <p>
-      NOW MONEY는 무료로 제공되며, 환산표 이미지 저장 등 일부 기능에서 <strong>Google AdMob 보상형 광고</strong>를 표시합니다.
-    </p>
-    <h3>iOS — 앱 추적 투명성(ATT)</h3>
-    <p>
-      iOS 14.5 이상에서는 앱 첫 실행 시 추적 동의 팝업이 표시됩니다.
-      <strong>"추적 허용"</strong> 시 광고 식별자(IDFA) 기반 맞춤형 광고가 제공되고,
-      <strong>"추적 안 함"</strong> 선택 시 맞춤형 식별자 없이 비개인화 광고가 제공됩니다(광고는 계속 표시됨).
-      이 설정은 언제든 iOS <em>설정 → 개인정보 보호 및 보안 → 추적</em>에서 변경할 수 있습니다.
-    </p>
-    <h3>Android — 광고 ID 관리</h3>
-    <p>
-      <em>설정 → 개인정보 보호 → 광고</em>에서 광고 ID를 재설정하거나 맞춤형 광고를 선택 해제할 수 있습니다.
-    </p>
-    <div class="highlight">
-      ✅ 광고 동의를 거부해도 앱의 모든 기능은 정상 이용 가능하며, 광고는 비개인화 형태로 계속 제공됩니다.
-    </div>
-  </div>
-
-  <div class="card" id="ko-storage">
-    <span class="badge">7</span>
-    <h2>로컬 데이터 저장</h2>
-    <p>앱이 직접 저장하는 데이터는 기기 내 <strong>로컬 저장소(AsyncStorage)</strong>에만 보관되며 앱 삭제 시 함께 삭제됩니다.</p>
-    <ul>
-      <li><strong>Android:</strong> 설정 → 앱 → NOW MONEY → 저장공간 → 데이터 지우기</li>
-      <li><strong>iOS:</strong> 앱 삭제 시 모든 로컬 데이터 자동 삭제</li>
-    </ul>
-  </div>
-
-  <div class="card" id="ko-security">
-    <span class="badge">8</span>
-    <h2>데이터 보안</h2>
-    <ul>
-      <li>당사는 개인 식별 정보를 수집·보관하지 않습니다.</li>
-      <li>모든 외부 통신은 <strong>HTTPS(TLS)</strong>로 암호화됩니다.</li>
-      <li>iOS: <code>ITSAppUsesNonExemptEncryption: false</code> 신고 완료.</li>
-      <li>앱 내 입력 금액은 화면 표시 후 즉시 폐기되며 어디에도 기록되지 않습니다.</li>
-    </ul>
-  </div>
-
-  <div class="card" id="ko-children">
-    <span class="badge">9</span>
-    <h2>아동 이용자 보호</h2>
-    <p>
-      NOW MONEY는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.
-      본 서비스는 COPPA 및 대한민국 「개인정보 보호법」 제39조의3를 준수합니다.
-    </p>
-  </div>
-
-  <div class="card" id="ko-rights">
-    <span class="badge">10</span>
-    <h2>이용자 권리</h2>
-    <p>이용자는 로컬 데이터 삭제, 맞춤형 광고 거부(ATT/광고 ID 재설정) 권리를 가집니다.</p>
-    <h3>GDPR / 개인정보 보호법 문의</h3>
-    <p>EU 거주 이용자 및 국내 이용자는 개인정보 관련 문의·열람·정정·삭제 요청을 아래 문의처로 보낼 수 있으며, 당사는 요청 수령 후 30일 이내 답변합니다.</p>
-  </div>
-
-  <div class="card" id="ko-changes">
-    <span class="badge">11</span>
-    <h2>방침 변경 안내</h2>
-    <p>본 방침은 법령·서비스 변경 시 갱신될 수 있으며, 변경 시 상단의 "최종 업데이트" 날짜를 갱신합니다.</p>
-    <h3>개정 이력</h3>
-    <table>
-      <thead><tr><th>날짜</th><th>변경 내용</th></tr></thead>
-      <tbody>
-        <tr><td>2026-05-14</td><td>최초 개인정보처리방침 제정</td></tr>
-        <tr><td>2026-06-11</td><td>Google AdMob 광고 및 ATT 데이터 처리 고지 추가, 영문 버전 추가</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card" id="ko-contact">
-    <span class="badge">12</span>
-    <h2>문의처</h2>
-    <table>
-      <tr><th>개발사</th><td>DragonPark</td></tr>
-      <tr><th>이메일</th><td><a href="mailto:sespjh@gmail.com">sespjh@gmail.com</a></td></tr>
-      <tr><th>앱 패키지명</th><td>com.dragonpark.currencyapp</td></tr>
-    </table>
-  </div>
-
-</div>
-</div>
-
-<!-- ================= English ================= -->
-<div id="en" class="lang">
-<div class="container">
-
-  <div class="toc">
-    <h2>Table of Contents</h2>
-    <ol>
-      <li><a href="#en-intro">Service Overview</a></li>
-      <li><a href="#en-collect">Information We Collect</a></li>
-      <li><a href="#en-nocollect">Information We Do NOT Collect</a></li>
-      <li><a href="#en-permissions">App Permissions</a></li>
-      <li><a href="#en-thirdparty">Third-Party Services</a></li>
-      <li><a href="#en-ads">Advertising &amp; Tracking (AdMob · ATT)</a></li>
-      <li><a href="#en-storage">Local Data Storage</a></li>
-      <li><a href="#en-security">Data Security</a></li>
-      <li><a href="#en-children">Children's Privacy</a></li>
-      <li><a href="#en-rights">Your Rights</a></li>
-      <li><a href="#en-changes">Changes to This Policy</a></li>
-      <li><a href="#en-contact">Contact</a></li>
-    </ol>
-  </div>
-
-  <div class="card" id="en-intro">
-    <span class="badge">1</span>
-    <h2>Service Overview</h2>
-    <p>
-      <strong>NOW MONEY</strong> is a real-time currency conversion app for travelers and frequent overseas spenders.
-      The developer, <strong>DragonPark</strong> ("we"), respects your privacy and complies with the Korean Personal
-      Information Protection Act, the EU GDPR, Google Play Developer Policies, and Apple App Store policies.
-    </p>
-    <p>This policy applies to all users of the NOW MONEY app (Android/iOS).</p>
-    <div class="highlight">
-      ✅ Summary: NOW MONEY has no sign-up or login and <strong>does not collect personally identifying information.</strong>
-      However, to keep the app free, it uses <strong>Google AdMob ads</strong>, which may process limited data such as an
-      advertising identifier during ad delivery (see Sections 5 &amp; 6).
-    </div>
-  </div>
-
-  <div class="card" id="en-collect">
-    <span class="badge">2</span>
-    <h2>Information We Collect</h2>
-    <p>The only data we store <strong>ourselves</strong> is the following on-device local data. It is never sent to our servers.</p>
-    <table>
-      <thead><tr><th>Item</th><th>Storage</th><th>Retention</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td>Favorite currencies<br><small>(e.g. USD, JPY, EUR)</small></td><td>Device local storage<br>(AsyncStorage)</td><td>Until app uninstall</td><td>Keep favorites</td></tr>
-        <tr><td>Language &amp; home currency settings</td><td>Device local storage</td><td>Until app uninstall</td><td>Persist preferences</td></tr>
-        <tr><td>Recent exchange-rate cache<br><small>(numeric data only)</small></td><td>Device local storage</td><td>Up to 6 hours (TTL)</td><td>Offline support, fast launch</td></tr>
-        <tr><td>Image-save counter</td><td>Device local storage</td><td>Until app uninstall</td><td>Control ad frequency</td></tr>
-      </tbody>
-    </table>
-    <p>In addition, <strong>Google AdMob</strong> may collect certain data such as an advertising identifier to serve ads (see Sections 5 &amp; 6).</p>
-  </div>
-
-  <div class="card" id="en-nocollect">
-    <span class="badge">3</span>
-    <h2>Information We Do NOT Collect</h2>
-    <p>We do <strong>not</strong> collect, store, or process:</p>
-    <ul>
-      <li>Personal identifiers such as name, email, or phone number</li>
-      <li>Precise location (e.g. GPS)</li>
-      <li>Contacts, camera, or microphone data</li>
-      <li>Financial data such as account or card numbers</li>
-      <li>Push notification tokens (no notification feature)</li>
-      <li>Amounts you type in (discarded immediately after calculation)</li>
-    </ul>
-    <div class="warn">
-      ⚠️ Note: Google AdMob, our ad provider, may independently process an advertising identifier (IDFA/GAID),
-      IP-based approximate location, and ad-interaction data. See Sections 5 &amp; 6.
-    </div>
-  </div>
-
-  <div class="card" id="en-permissions">
-    <span class="badge">4</span>
-    <h2>App Permissions</h2>
-    <table>
-      <thead><tr><th>Permission</th><th>Purpose</th><th>Required</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Internet</strong></td><td>Fetch live rates and load ads</td><td>Required</td></tr>
-        <tr><td><strong>Photos / Media</strong><br><small>Android: READ_MEDIA_IMAGES<br>iOS: NSPhotoLibraryAddUsageDescription</small></td><td>Only to save the conversion table PNG to your gallery. Save-only; no reading or editing existing photos.</td><td>Optional</td></tr>
-        <tr><td><strong>App Tracking Transparency</strong><br><small>iOS: NSUserTrackingUsageDescription</small></td><td>To ask consent for personalized ads (you may decline).</td><td>Optional</td></tr>
-      </tbody>
-    </table>
-    <h3>Permissions we never request</h3>
-    <p>We do not request precise location, camera, microphone, contacts, Bluetooth, NFC, or other sensitive permissions unrelated to currency conversion.</p>
-  </div>
-
-  <div class="card" id="en-thirdparty">
-    <span class="badge">5</span>
-    <h2>Third-Party Services</h2>
-
-    <h3>① Korea Eximbank Exchange-Rate API</h3>
-    <table>
-      <tr><th>Provider</th><td>Korea Eximbank</td></tr>
-      <tr><th>Data sent</th><td>Date parameter (YYYYMMDD) — no personal data</td></tr>
-      <tr><th>Purpose</th><td>Live "cash buying" rates</td></tr>
-    </table>
-
-    <h3>② ExchangeRate-API</h3>
-    <table>
-      <tr><th>Provider</th><td>ExchangeRate-API Ltd.</td></tr>
-      <tr><th>Data sent</th><td>None (parameterless GET)</td></tr>
-      <tr><th>Privacy policy</th><td><a href="https://www.exchangerate-api.com/legal/privacy-policy" target="_blank">exchangerate-api.com/legal/privacy-policy</a></td></tr>
-    </table>
-
-    <h3>③ Google AdMob (Advertising)</h3>
-    <table>
-      <tr><th>Provider</th><td>Google LLC (AdMob)</td></tr>
-      <tr><th>Data processed</th><td>Advertising identifier (IDFA/GAID), IP-based approximate location, device info, ad-interaction data</td></tr>
-      <tr><th>Purpose</th><td>Serving rewarded ads, ad measurement, fraud prevention</td></tr>
-      <tr><th>Privacy policy</th><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td></tr>
-      <tr><th>How Google uses data</th><td><a href="https://support.google.com/admob/answer/6128543" target="_blank">support.google.com/admob/answer/6128543</a></td></tr>
-    </table>
-    <div class="warn">
-      ⚠️ AdMob is Google's ad network and processes the data above to deliver ads. We do not share your name, email,
-      or other personal identifiers with AdMob.
-    </div>
-  </div>
-
-  <div class="card" id="en-ads">
-    <span class="badge">6</span>
-    <h2>Advertising &amp; Tracking (AdMob · ATT)</h2>
-    <p>NOW MONEY is free and shows <strong>Google AdMob rewarded ads</strong> in certain features (e.g. saving the table image).</p>
-    <h3>iOS — App Tracking Transparency (ATT)</h3>
-    <p>
-      On iOS 14.5+, a tracking-consent prompt appears on first launch.
-      If you <strong>Allow</strong>, personalized ads use the advertising identifier (IDFA);
-      if you choose <strong>Ask App Not to Track</strong>, non-personalized ads are shown without a personalized identifier
-      (ads still appear). You can change this anytime in iOS <em>Settings → Privacy &amp; Security → Tracking</em>.
-    </p>
-    <h3>Android — Managing your Ad ID</h3>
-    <p>You can reset your advertising ID or opt out of personalized ads in <em>Settings → Privacy → Ads</em>.</p>
-    <div class="highlight">
-      ✅ Declining ad consent does not affect app functionality; ads simply continue in a non-personalized form.
-    </div>
-  </div>
-
-  <div class="card" id="en-storage">
-    <span class="badge">7</span>
-    <h2>Local Data Storage</h2>
-    <p>Data we store ourselves stays only in <strong>device local storage (AsyncStorage)</strong> and is deleted when the app is uninstalled.</p>
-    <ul>
-      <li><strong>Android:</strong> Settings → Apps → NOW MONEY → Storage → Clear data</li>
-      <li><strong>iOS:</strong> Uninstalling the app removes all local data</li>
-    </ul>
-  </div>
-
-  <div class="card" id="en-security">
-    <span class="badge">8</span>
-    <h2>Data Security</h2>
-    <ul>
-      <li>We do not collect or store personally identifying information.</li>
-      <li>All external communication is encrypted with <strong>HTTPS (TLS)</strong>.</li>
-      <li>iOS: declared <code>ITSAppUsesNonExemptEncryption: false</code>.</li>
-      <li>Amounts you enter are discarded immediately after display and never recorded.</li>
-    </ul>
-  </div>
-
-  <div class="card" id="en-children">
-    <span class="badge">9</span>
-    <h2>Children's Privacy</h2>
-    <p>NOW MONEY is not directed to children under 14 and does not knowingly collect their data. The service complies with COPPA and Article 39-3 of the Korean Personal Information Protection Act.</p>
-  </div>
-
-  <div class="card" id="en-rights">
-    <span class="badge">10</span>
-    <h2>Your Rights</h2>
-    <p>You may delete local data and opt out of personalized ads (via ATT or by resetting your advertising ID).</p>
-    <h3>GDPR / Privacy Inquiries</h3>
-    <p>EU and other users may send privacy inquiries, access, correction, or deletion requests to the contact below. We respond within 30 days of receipt.</p>
-  </div>
-
-  <div class="card" id="en-changes">
-    <span class="badge">11</span>
-    <h2>Changes to This Policy</h2>
-    <p>We may update this policy when laws or the service change; the "Last updated" date above will be revised accordingly.</p>
-    <h3>Revision History</h3>
-    <table>
-      <thead><tr><th>Date</th><th>Change</th></tr></thead>
-      <tbody>
-        <tr><td>2026-05-14</td><td>Initial privacy policy</td></tr>
-        <tr><td>2026-06-11</td><td>Added Google AdMob &amp; ATT data disclosure; added English version</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card" id="en-contact">
-    <span class="badge">12</span>
-    <h2>Contact</h2>
-    <table>
-      <tr><th>Developer</th><td>DragonPark</td></tr>
-      <tr><th>Email</th><td><a href="mailto:sespjh@gmail.com">sespjh@gmail.com</a></td></tr>
-      <tr><th>Package name</th><td>com.dragonpark.currencyapp</td></tr>
-    </table>
-  </div>
-
-</div>
 </div>
 
 <footer>
-  © 2026 DragonPark · NOW MONEY · All rights reserved<br>
-  NOW MONEY 앱의 공식 개인정보처리방침 · Official Privacy Policy of the NOW MONEY app
+  © 2026 DragonPark · All rights reserved
 </footer>
-
-<script>
-  function setLang(lang) {
-    document.getElementById('ko').classList.toggle('active', lang === 'ko');
-    document.getElementById('en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.documentElement.lang = lang;
-    try { localStorage.setItem('pp_lang', lang); } catch (e) {}
-  }
-  // 기본 언어: 저장값 → 브라우저 언어(ko면 한국어, 그 외 영어)
-  (function () {
-    var saved = null;
-    try { saved = localStorage.getItem('pp_lang'); } catch (e) {}
-    var lang = saved || ((navigator.language || 'en').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
-    setLang(lang);
-  })();
-</script>
 
 </body>
 </html>
-
